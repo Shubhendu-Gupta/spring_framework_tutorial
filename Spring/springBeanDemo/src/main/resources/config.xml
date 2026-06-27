@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student1" class="org.example.Student">
+        <!--method 1: using <property> tag-->
+        <property name="id">
+            <value>1</value>
+        </property>
+
+        <!--method 2: using <constructor-arg> tag-->
+        <property name="name" value="John Doe"/>
+
+        <property name="city" value="New York"/>
+
+        <property name="mobileNumbers">
+        <list>
+            <value>123-456-7890</value>
+            <value>987-654-3210</value>
+        </list>
+        </property>
+
+        <property name="emails">
+            <set>
+                <value>test@yopmail.com</value>
+                <value>s@yopmail.com</value>
+            </set>
+        </property>
+
+        <property name="courses">
+            <map>
+                <entry key="Math" value="A"/>
+                <entry key="Science" value="B"/>
+                <entry key="History" value="C"/>
+            </map>
+        </property>
+
+        <property name="address">
+            <bean class="org.example.Address">
+                <property name="street" value="123 Main St"/>
+                <property name="city" value="New York"/>
+                <property name="zip" value="10001"/>
+            </bean>
+        </property>
+
+    </bean>
+
+    <bean id="student2" class="org.example.Student" p:id="2" p:name="Jane Smith" p:city="Los Angeles"/>
+
+
+
+</beans>
