@@ -11,6 +11,5 @@ public class Test {
         System.out.println(a.getX());
         System.out.println(a.getOb().getY());
         System.out.println(a);
-
     }
 }
