@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="com.springcore.ci.Certificate" name="cert">
+        <constructor-arg>
+            <list>
+                <value> Java Certification</value>
+                <value> Python Certification</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean class="com.springcore.ci.Person" name="person">
+        <constructor-arg value="Shubhendu"/>
+        <constructor-arg value="20" type="int"/>
+        <constructor-arg ref="cert"/>
+    </bean>
+
+
+    <bean class="com.springcore.ci.Person" name="person1"
+          c:_0="shubh" c:_1="25" c:_2-ref="cert"/>
+
+    <bean class="com.springcore.ci.Person" name="person2">
+        <constructor-arg index="0" value="gupta"/>
+        <constructor-arg index="1" value="15"/>
+        <constructor-arg index="2" ref="cert"/>
+    </bean>
+
+    <!-- Note:-->
+    <!-- 1. The index attribute is used to specify the position of the constructor argument in the constructor.-->
+    <!-- 2. The type attribute is used to specify the data type of the constructor argument.-->
+    <!-- 3. The ref attribute is used to specify a reference to another bean defined in the Spring configuration file.-->
+    <!-- 4. If type and index attributes are not specified, Spring will try to match the constructor arguments based on their order and type.-->
+    <bean class="com.springcore.ci.Addition" name="add">
+        <constructor-arg value="10" type="int" index="1"/>
+        <constructor-arg value="20" type="int" index="0"/>
+    </bean>
+</beans>
